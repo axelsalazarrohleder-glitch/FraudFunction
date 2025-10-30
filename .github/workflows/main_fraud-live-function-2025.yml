@@ -39,9 +39,7 @@ jobs:
           sudo apt-get install -y unixodbc-dev msodbcsql18
       - name: Install Python dependencies
         run: |
-          python -m venv venv
-          source venv/bin/activate
-          pip install -r requirements.txt
+          python -m pip install --upgrade pip
           pip install --target="./.python_packages" -r requirements.txt
 
       # Optional: Add step to run tests here
