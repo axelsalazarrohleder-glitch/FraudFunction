@@ -1,7 +1,6 @@
 import azure.functions as func
 import logging
 import os
-import pyodbc
 import pypyodbc
 import random
 import uuid
