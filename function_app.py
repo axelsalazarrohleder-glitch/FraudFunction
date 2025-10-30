@@ -1,7 +1,7 @@
 import azure.functions as func
 import logging
 import os
-import pypyodbc
+import pyodbc
 import random
 import uuid
 import pandas as pd
@@ -24,7 +24,7 @@ def LiveTransactionSimulator(myTimer: func.TimerRequest) -> None:
         # Gets the connection string from an environment variable
         conn_str = os.environ["AzureSqlDbConnectionString"]
 
-        with pypyodbc.connect(conn_str) as conn:
+        with pyodbc.connect(conn_str) as conn:
             logging.info("Successfully connected to the SQL database.")
             cursor = conn.cursor()
 
@@ -82,7 +82,7 @@ def LiveTransactionSimulator(myTimer: func.TimerRequest) -> None:
 
             logging.info(f"Successfully inserted 1 fraudulent transaction for user {user_id}")
 
-    except pypyodbc.Error as e:
+    except pyodbc.Error as e:
         logging.error(f"Database error: {e}")
     except Exception as e:
         logging.error(f"An unexpected error occurred: {e}")
