@@ -33,10 +33,10 @@ jobs:
         run: |
           python -m venv venv
           source venv/bin/activate
-      - name: Install unixODBC and msodbcsql17
+      - name: Install unixODBC and msodbcsql18
         run: |
           sudo apt-get update
-          sudo apt-get install -y unixodbc-dev msodbcsql17
+          sudo apt-get install -y unixodbc-dev msodbcsql18
       - name: Install dependencies
         run: pip install -r requirements.txt
 
